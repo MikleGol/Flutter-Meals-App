@@ -3,6 +3,7 @@ import 'package:flutter_meals_app/data/dummy_data.dart';
 import 'package:flutter_meals_app/screens/categories.dart';
 import 'package:flutter_meals_app/screens/meals.dart';
 import 'package:flutter_meals_app/screens/tabs.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,7 +17,11 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -26,8 +31,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        theme: theme,
-        home: const TabsScreen(),
+      theme: theme,
+      home: const TabsScreen(),
     );
   }
 }
